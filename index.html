@@ -559,13 +559,16 @@
     .tagline {
       position: absolute;
       bottom: 32px;
-      left: 50%;
-      transform: translateX(-50%);
+      left: 0;
+      right: 0;
+      width: 100%;
+      text-align: center;
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: 14px;
       font-style: italic;
       color: rgba(212, 175, 55, 0.5);
       letter-spacing: 0.02em;
+      padding: 0 20px;
       opacity: 0;
       animation: fadeIn 1s ease 1.5s forwards;
     }
@@ -934,6 +937,11 @@
         gap: 12px;
       }
 
+      .credit-badge {
+        padding: 8px 16px;
+        font-size: 12px;
+      }
+
       .progress-steps {
         display: none;
       }
@@ -967,7 +975,6 @@
       .tagline {
         font-size: 12px;
         bottom: 20px;
-        max-width: 90%;
       }
 
       .launch-stamp {
@@ -1064,7 +1071,7 @@
           <img src="logos/uda-logo.png" alt="Urban Development Authority" class="logo" onerror="this.parentElement.style.display='none'" />
         </div>
         <div class="logo-container">
-          <img src="logos/kw-ps-logo.png" alt="KW Pradeshiya Shaba, Oddamavadi" class="logo" onerror="this.parentElement.style.display='none'" />
+          <img src="logos/kwp-logo.png" alt="KW Pradeshiya Shaba, Oddamavadi" class="logo" onerror="this.parentElement.style.display='none'" />
         </div>
       </div>
 
@@ -1141,7 +1148,7 @@
         <span class="stamp-word">LAUNCHED</span>
         <span class="stamp-date">07.04.2026</span>
       </div>
-      <h2 class="hero-text">Project Officially Initiated</h2>
+      <h2 class="hero-text">Officially Initiated</h2>
       <p class="hero-sub">Koralaipattu West Oddamavadi Development Plan 2026 – 2035</p>
       <p class="tagline hero-tagline">"Voice Together, Sustainable Future of Koralaipattu West Oddamavadi PS"</p>
       <div class="credits">
@@ -1150,7 +1157,7 @@
           <span>Urban Development Authority</span>
         </div>
         <div class="credit-badge">
-          <img src="logos/kw-ps-logo.png" alt="" onerror="this.style.display='none'">
+          <img src="logos/kwp-logo.png" alt="" onerror="this.style.display='none'">
           <span>Koralaipattu West Pradeshiya Shaba</span>
         </div>
       </div>
