@@ -819,10 +819,8 @@
               <div class="journey-node" data-n="3">3</div>
               <div class="journey-node" data-n="4">4</div>
               <div class="journey-node" data-n="5">5</div>
-              <div class="journey-node" data-n="6">6</div>
-              <div class="journey-node" data-n="7">7</div>
             </div>
-            <p class="journey-count" id="journeyCount">0 of 7</p>
+            <p class="journey-count" id="journeyCount">0 of 5</p>
           </div>
 
           <button class="ceremony-btn" id="ceremonyBtn">
@@ -929,19 +927,16 @@
   /* ══ Ceremony state machine ═════════════════════════════════ */
   const STAGES = [
     { msg:"Awaiting participation to commence the official launch…",      btn:"Begin the Ceremony" },
-    { msg:"The journey begins — step 1 of 7. Our mission takes flight.",  btn:"Continue" },
-    { msg:"Step 2 of 7 — learn, lead, and succeed together.",             btn:"Continue" },
-    { msg:"Step 3 of 7 — meaningful change starts when we step forward.", btn:"Continue" },
-    { msg:"Step 4 of 7 — four voices united for positive impact.",        btn:"Continue" },
-    { msg:"Step 5 of 7 — building our future, together.",                 btn:"Continue" },
-    { msg:"Step 6 of 7 — one final act will launch our platform.",        btn:"Launch the Website" },
+    { msg:"The journey begins — step 1 of 5. Our mission takes flight.",  btn:"Continue" },
+    { msg:"Step 2 of 5 — learn, lead, and succeed together.",             btn:"Continue" },
+    { msg:"Step 3 of 5 — meaningful change starts when we step forward.", btn:"Continue" },
+    { msg:"Step 4 of 5 — four voices united for positive impact.",        btn:"Continue" },
+    { msg:"Step 5 of 5 — one final act will launch our platform.",        btn:"Launch the Website" },
     { msg:"All participants have spoken. Iconic Youths is officially live!", btn:null }
   ];
 
   // One entry per step (steps 1–7). Fill in real names and image paths.
   const GUESTS = [
-    { src:"Images/guest%201.png", name:"Guest Name", role:"Participant" },
-    { src:"Images/guest%201.png", name:"Guest Name", role:"Participant" },
     { src:"Images/guest%201.png", name:"Guest Name", role:"Participant" },
     { src:"Images/guest%201.png", name:"Guest Name", role:"Participant" },
     { src:"Images/guest%201.png", name:"Guest Name", role:"Participant" },
@@ -963,7 +958,7 @@
       guestPhoto.src        = g.src;
       guestName.textContent = g.name;
       guestRole.textContent = g.role || 'Participant';
-      guestStepText.textContent = `${idx + 1} of 7`;
+      guestStepText.textContent = `${idx + 1} of 5`;
       guestPhoto.classList.remove('changing');
       guestName.classList.remove('fade-out');
       guestRole.classList.remove('fade-out');
@@ -981,15 +976,15 @@
   btn.addEventListener('click', handleClick);
 
   function handleClick(){
-    if(busy||step>=7) return;
+    if(busy||step>=5) return;
     busy=true; getAudioCtx();
     btn.disabled=true;
     btn.classList.add('shine');
     setTimeout(()=>btn.classList.remove('shine'), 560);
     step++;
     updateGuest(step - 1);
-    jFill.style.width=(step/7*100)+'%';
-    jCount.textContent=step+' of 7';
+    jFill.style.width=(step/5*100)+'%';
+    jCount.textContent=step+' of 5';
     nodes.forEach((n,i)=>{
       n.classList.remove('active','done');
       if(i<step-1) n.classList.add('done');
@@ -997,7 +992,7 @@
     });
     jMsg.style.opacity='0';
     setTimeout(()=>{ jMsg.textContent=STAGES[step].msg; jMsg.style.opacity='.85'; },290);
-    if(step===7){
+    if(step===5){
       setTimeout(()=>{ btn.style.transition='opacity .5s, transform .5s'; btn.style.opacity='0'; btn.style.transform='scale(.9)'; },400);
       setTimeout(triggerCelebration, 1800);
       return;
